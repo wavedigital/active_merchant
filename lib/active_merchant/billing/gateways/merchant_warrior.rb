@@ -29,6 +29,7 @@ module ActiveMerchant #:nodoc:
         add_amount(post, money, options)
         add_order_id(post, options)
         add_address(post, options)
+        add_custom(post, options)
         add_payment_method(post, payment_method)
         add_recurring_flag(post, options)
         add_soft_descriptors(post, options)
@@ -40,6 +41,7 @@ module ActiveMerchant #:nodoc:
         add_amount(post, money, options)
         add_order_id(post, options)
         add_address(post, options)
+        add_custom(post, options)
         add_payment_method(post, payment_method)
         add_recurring_flag(post, options)
         add_soft_descriptors(post, options)
@@ -114,6 +116,12 @@ module ActiveMerchant #:nodoc:
         post['customerIP'] = address[:ip]
         post['customerPhone'] = address[:phone]
         post['customerEmail'] = address[:email]
+      end
+
+      def add_custom(post, options)
+        post['custom1'] = options[:custom1]
+        post['custom2'] = options[:custom2]
+        post['custom3'] = options[:custom3]
       end
 
       def add_order_id(post, options)
